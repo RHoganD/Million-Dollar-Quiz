@@ -1,0 +1,80 @@
+body{
+color: #fff;
+
+}
+
+.choice-container{
+    display:flex;
+    margin-bottom: 0.8rem;
+    width: 100%;
+    border-radius: 4px;
+    background: rgb(18, 93, 255);
+    font-size: 2rem;
+    min-width: 80rem;
+    
+    }
+    
+  .choice-container:hover{
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem o rgba(6, 103, 247, 0.5);
+    transform: scale(1.02);
+    transform: transform 100ms;
+    }
+    
+    .choice-prefix{
+    padding: 1.5rem 1.5rem;
+    color: #fff;
+    }
+    
+    .choice-text{
+    padding: 1.5rem;
+    width: 100%;
+    }
+    
+
+/*will turn green via javascript is answer is correct*/
+.correct{
+background: linear-gradient(32deg, rgba(11, 223 36)0% rgba(41, 232, 111)100%)
+        }
+    
+.incorrect {
+background: linear-gradient(32deg, rgba(230, 29, 29, 1)0% rgba(224, 11, 11, 1)100%)
+    }
+
+/* heads ups display */
+#hub{
+    display: flex;
+    justify-content: space-between;
+    }
+
+.hub-prefix{
+text-align: center;
+font-size: 1.8rem;
+    }
+.hub-main-text{
+    text-align: center;
+}
+
+#progressBar{
+width: 15rem;
+height: 3rem;
+border: 0.2rem solid rgb(11,223,36);
+margin-top: 3rem;
+margin-bottom: 3rem;
+border-radius: 50px;
+overflow: hidden;
+}
+
+#progressBarFull{
+height: 100%;
+background: 0.2rem solid rgb(11,223,36);
+width: 0;
+}
+
+
+
+    @media screen and (max-width: 768px){
+    .choice-container {
+    min-width: 40rem;
+        } 
+    }
