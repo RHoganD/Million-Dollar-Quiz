@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+
 body{
 color: #fff;
 
@@ -73,8 +76,8 @@ width: 0;
 
 
 
-    @media screen and (max-width: 768px){
-    .choice-container {
+ @media screen and (max-width: 768px){
+   .choice-container {
     min-width: 40rem;
         } 
     }
