@@ -53,15 +53,15 @@ answer: 1,
 const SCORE_POINTS = 100;
 const MAX_QUESTIONS = 4;
 
-startGame =() =>{
-questionsCounter = 0
+startGame=() =>{
+questionCounter = 0
 score = 0
-availableQuestions = [...questions]
+availableQuestions = [...question]
 getNewQuestion()
 }
 
 getNewQuestion = () => {
-    if(availableQuestions.length === 0 || questionsCounter > MAX_QUESTIONS){
+    if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS){
     localStorage.setItem('mostReentScore', score)
     return window.location.assign('/end.html')
 
@@ -72,6 +72,50 @@ progressBarFull.style.width = `${(questionCounter/MAX_QUESTIONS) * 100}%`
 
 
 const questionIndex = Math.floor(Math.random() * availableQuestions.length)
+currentQuestion = availableQuestions[questionIndex]
+question.inerText = currentQuestion.question
 
+choices.forEach(choice => {
+    const number = choice.dataset['number']
+    choice.inerText = currentQuestion['choice' + number]
+    })
 
+availableQuestions.splice(questionIndex, 1)
+
+acceptingAnswers = true
 }
+
+choices.forEach(choice => {
+    choice.addEventListener('click', e =>{
+    
+    if(!acceptingAnswers) return
+    
+    acceptingAnswers = false
+    const selectedChoice = e.target
+    const selectedAnswer = selectedChoice.dataset['number']
+    
+    let classToApply = selectedAnswer == currentQuestion.answer ? 'correct':
+    'incorrect'
+    
+    if(classToApply === 'correct'){
+    incrementScore(SCORE_POINTS)
+    }
+    
+selectedChoice.parentElement.classList.add(classToApply)
+
+setTimeout(() => {
+    selectedChoice.parentElement.classList.remove(classToApply)
+getNewQuestion()
+
+}, 1000)
+    
+    })
+    
+    })
+
+incrementScore = num => {
+ score += num
+ ScoreText.inerText = score
+ }
+        
+startGame()
